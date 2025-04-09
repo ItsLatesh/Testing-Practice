@@ -4,6 +4,7 @@ import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -46,6 +47,16 @@ public class DropExm {
 			
 		}
 		
+		 // Locate the dropdown
+        WebElement countryDropdown = driver.findElement(By.id("country"));
+
+        // Scroll into view
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", countryDropdown);
+
+        // Now create Select object and interact
+        Select select = new Select(countryDropdown);
+        select.selectByVisibleText("India");
 		
 		
 
