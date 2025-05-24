@@ -15,7 +15,9 @@ public class SSLhandlingExm {
 		WebDriverManager.chromedriver().setup();
 		
 		ChromeOptions options = new ChromeOptions();
-		
+		//to remove "chrome is being controlled by automated test software "
+				//options.setExperimentalOption("excludeSwitches",new String []) {"enable-automation"}
+				
 		options.setAcceptInsecureCerts(true);//accepts SSL certificates 
 
 		WebDriver driver = new ChromeDriver(options );
